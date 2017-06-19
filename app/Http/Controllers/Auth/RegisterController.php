@@ -36,8 +36,20 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        abort(404);
-        // $this->middleware('guest');
+        $this->middleware('guest');
+    }
+
+    /**
+     * Disable registration by overriding showRegistrationForm.
+     */
+    public function showRegistrationForm()
+    {
+        return redirect('login');
+    }
+
+    public function register()
+    {
+        
     }
 
     /**
