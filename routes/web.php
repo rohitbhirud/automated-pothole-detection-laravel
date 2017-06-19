@@ -54,3 +54,7 @@ Route::prefix('complaint')->group(function ()
 
 
 /*************************** engineers route ***************************/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
