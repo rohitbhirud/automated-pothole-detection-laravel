@@ -11,50 +11,60 @@
 |
 */
 
+
+/*************************** auth routes ***************************/
+Auth::routes();
+
+
 /*************************** admin routes ***************************/
 
-/**
- * Basic home & reports routes
- */
-
-Route::get('/', 'HomeController@index');
-Route::get('/reports/{type}', 'HomeController@reports');
-
-/**
- * Engineers resource routes
- */
-
-Route::get('engineer/details/{id}', 'EngineersController@show');
-Route::get('engineer/complaints', 'EngineersController@complaints');
-
-Route::resource('engineer', 'EngineersController');
-
-/**
- * User resource routes
- */
-
-Route::prefix('user')->group(function ()
+Route::group(['middleware' => ['auth', 'role:admin']], function()
 {
-	Route::get('/', 'UsersController@index');
-	Route::get('details/{user}', 'UsersController@show');
-	Route::delete('{user}', 'UsersController@destroy');
-});
+	/**
+	 * Basic home & reports routes
+	 */
 
-/**
- * Complaint resource routes
- */
-Route::prefix('complaint')->group(function ()
-{
-	Route::get('/{type}', 'ComplaintsController@index');
-	Route::get('/details/{complaint}', 'ComplaintsController@show');
-	Route::get('/{complaint}/edit', 'ComplaintsController@edit');
-	Route::match(['put', 'patch'], '{complaint}', 'ComplaintsController@update');
-	Route::delete('{complaint}', 'ComplaintsController@destroy');
+		Route::get('/', 'HomeController@index');
+		Route::get('/reports/{type}', 'HomeController@reports');
+
+	/**
+	 * Engineers resource routes
+	 */
+
+		Route::get('engineer/details/{id}', 'EngineersController@show');
+		Route::get('engineer/complaints', 'EngineersController@complaints');
+
+		Route::resource('engineer', 'EngineersController');
+
+	/**
+	 * User resource routes
+	 */
+
+		Route::prefix('user')->group(function ()
+		{
+			Route::get('/', 'UsersController@index');
+			Route::get('details/{user}', 'UsersController@show');
+			Route::delete('{user}', 'UsersController@destroy');
+		});
+
+	/**
+	 * Complaint resource routes
+	 */
+		Route::prefix('complaint')->group(function ()
+		{
+			Route::get('/{type}', 'ComplaintsController@index');
+			Route::get('/details/{complaint}', 'ComplaintsController@show');
+			Route::get('/{complaint}/edit', 'ComplaintsController@edit');
+			Route::match(['put', 'patch'], '{complaint}', 'ComplaintsController@update');
+			Route::delete('{complaint}', 'ComplaintsController@destroy');
+		});
+
 });
 
 
 /*************************** engineers route ***************************/
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth', 'role:engineer']], function()
+{
+	
+});

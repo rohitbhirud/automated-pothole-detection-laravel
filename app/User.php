@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Complaint');
     }
+
+    public function hasRole($role)
+    {
+        return ( $this->role == $role ? true : false );
+    }
 }
