@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Complaint;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,14 @@ class HomeController extends Controller
             return redirect('mod/');
         }
 
+        $counter['potholes'] = Complaint::where('type', 'pothole')->count();
+        $counter['traffic'] = Complaint::where('type', 'traffic')->count();
+        $counter['accidents'] = Complaint::where('type', 'accident')->count();
+        $counter['users'] = User::count();
+
         $title = "Pothole Detection Homepage";
         
-        return view('home', compact('title'));
+        return view('home', compact('title', 'counter'));
     }
 
     public function reports($type = "")

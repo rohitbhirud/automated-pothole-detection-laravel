@@ -8,28 +8,28 @@
       Total Potholes
 
     </span>
-    <div class="count">323</div>
+    <div class="count">{{ $counter['potholes'] }}</div>
   </div>
   <div class="col-md-3 single_counter text-center">
     <span class="count_top">
       <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
       Total Traffic
     </span>
-    <div class="count">3434</div>
+    <div class="count">{{ $counter['traffic'] }}</div>
   </div>
   <div class="col-md-3 single_counter text-center">
     <span class="count_top">
       <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
       Total Accident
     </span>
-    <div class="count">45</div>
+    <div class="count">{{ $counter['accidents'] }}</div>
   </div>
   <div class="col-md-3 single_counter text-center">
     <span class="count_top">
       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
       Total Users
     </span>
-    <div class="count green">66</div>
+    <div class="count green">{{ $counter['users'] }}</div>
   </div>
 </div>
 
