@@ -18,7 +18,9 @@ Auth::routes();
 
 /*************************** admin routes ***************************/
 
-Route::get('/', 'HomeController@index')->middleware(['auth', 'redirectIfEngineer', 'role:admin']);
+Route::get('/', 'HomeController@index')
+		->middleware(['auth', 'redirectIfEngineer', 'role:admin'])
+		->name('home');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function()
 {
@@ -26,16 +28,19 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 	 * Basic home & reports routes
 	 */
 
-		Route::get('/reports/{type}', 'HomeController@reports');
+		Route::get('/reports/{type?}', 'HomeController@reports')->name('reports');
 
 	/**
 	 * Engineers resource routes
 	 */
-
-		Route::get('engineer/details/{id}', 'EngineersController@show');
-		Route::get('engineer/complaints', 'EngineersController@complaints');
-
+	
 		Route::resource('engineer', 'EngineersController');
+
+		Route::get('engineer/details/{id}', 'EngineersController@show')
+			->name('engDetails');
+		
+		Route::get('engineer/complaints', 'EngineersController@complaints')
+			->name('engComplaints');
 
 	/**
 	 * User resource routes
@@ -43,9 +48,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 
 		Route::prefix('user')->group(function ()
 		{
-			Route::get('/', 'UsersController@index');
-			Route::get('details/{user}', 'UsersController@show');
-			Route::delete('{user}', 'UsersController@destroy');
+			Route::get('/', 'UsersController@index')->name('users');
+			Route::get('details/{user}', 'UsersController@show')->name('userDetails');
+			Route::delete('{user}', 'UsersController@destroy')->name('userDelete');
 		});
 
 	/**
@@ -53,11 +58,11 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 	 */
 		Route::prefix('complaint')->group(function ()
 		{
-			Route::get('/{type}', 'ComplaintsController@index');
-			Route::get('/details/{complaint}', 'ComplaintsController@show');
-			Route::get('/{complaint}/edit', 'ComplaintsController@edit');
+			Route::get('/{type}', 'ComplaintsController@index')->name('complaints');
+			Route::get('/details/{complaint}', 'ComplaintsController@show')->name('compDetails');
+			Route::get('/{complaint}/edit', 'ComplaintsController@edit')->name('compEdit');
 			Route::match(['put', 'patch'], '{complaint}', 'ComplaintsController@update');
-			Route::delete('{complaint}', 'ComplaintsController@destroy');
+			Route::delete('{complaint}', 'ComplaintsController@destroy')->name('compDelete');
 		});
 
 });

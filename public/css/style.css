@@ -1,0 +1,301 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: #73879C;
+  font-size: 13px;
+  font-weight: 400;
+  background: white;
+  
+  display: table;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url( '/img/login-bg.jpg' ) no-repeat center center;
+  background-size: cover;
+  height: 350px;
+  color: white;
+}
+
+a {
+  color: #0094f7;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.green {
+  color: #1ABB9C;
+}
+.red {
+  color: red;
+}
+
+.main-container {
+  background-color: white;
+  padding-top: 30px;
+  color: #73879C;
+  border-radius: 5px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+}
+
+.bg {
+  background: url("../../images/lambo.jpg") no-repeat center center;
+  position: fixed;
+  width: 90%;
+  height: 350px;
+  /*same height as jumbotron */
+  top: 0;
+  left: 50;
+  z-index: -1; }
+
+.jumbotron {
+  padding-top: 100px;
+  height: 300px;
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  font-weight: bold;
+  background: transparent; }
+
+.sidebar ul {
+  margin-top: -10px;
+}
+.sidebar ul li {
+  padding-top: 20px;
+  padding-bottom: 20px; 
+  border-radius: 10px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3); 
+  margin-top: 10px;
+  color: #73879C;
+  transition: background-color 500ms, color 500ms;
+  }
+.sidebar ul li:hover {
+  background-color: #286090;
+  color: white;
+}
+  .sidebar ul li span {
+    font-size: 30px;
+    width: 100% !important;
+  }
+  .sidebar ul li a {
+    font-size: 12px; 
+    
+}
+.main-header h3 {
+  font-size: 30px;
+  margin-top: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+.counter {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.counter .single_counter {
+  border-right: 2px solid gray;
+}
+.counter .single_counter:last-of-type {
+  border: none;
+}
+.counter .single_counter .count {
+  font-size: 40px;
+  font-weight: bold;
+}
+.attr {
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+.attr h4 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.attr ul li {
+  border: 1px solid lightgrey;
+  padding: 10xp;
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 15px;
+}
+thead {
+	background: rgba(52,73,94,.94);
+	color: #ECF0F1;
+}
+.details .left-col {
+  padding-left: 100px;
+  font-weight: bold;
+}
+.details .left-col div:last-of-type {
+  margin-top: 6px;
+}
+.details div div {
+  padding-top: 20px;
+}
+.details .eng_list select {
+  width: 70%;
+  float: left;
+}
+.details .eng_list a {
+  margin-left: 30px;
+}
+#map {
+  height: 500px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 0px;
+  box-shadow: 0 10px 20px grey;
+}
+
+.dashboard_map {
+  border: 1px solid lightgrey;
+  padding: 20px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard_map #map {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 0px;
+  box-shadow: 0 0 10px lightgrey;
+}
+
+.dashboard_map .map_header {
+  font-size: 20px;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+.add_eng {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.eng_form {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 90%;
+  border: 1px solid lightgrey;
+  padding: 30px;
+  box-shadow: 0 0 10px lightgrey;
+}
+.eng_form input {
+  border-radius: 0;
+}
+
+.eng_form i {
+  padding-top: 10px;
+}
+
+.reports {
+  width: 400px;
+  margin-top: 50px;
+}
+.reports li {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  box-shadow: 0 0 10px lightgrey;
+}
+.reports li:hover {
+  background-color: #286090;
+  color: white;
+}
+
+/* Login Styles */
+.login {
+  width: 60%;
+  border: 1px solid lightgrey;
+  background-color: white;
+  color: #555;
+  padding: 40px;
+  box-shadow: 0 0 10px black;
+  border-radius: 5px;
+}
+.login .login-header {
+  background: gray;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 280px;
+  width: 40%;
+  padding: 10px;
+  background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px black;
+}
+.login .login-header h3{
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.login label{
+  margin-top: 10px;
+}
+.login input {
+  border-radius: 25px;
+  margin-top: 10px;
+  transition: 500ms;
+}
+.login input:focus, .login select:focus {
+  box-shadow: none;
+  border: 1px solid grey;
+}
+.login select {
+  cursor: pointer;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+}
+.login .btn {
+  width: 100%;
+  border-radius: 25px;
+  background-color: #777777;
+  border: none;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.errorMessage {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.download {
+  width: 50%;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 30px;
+  box-shadow: 0 0 15px #55555;
+  background-color: rgba(255,255,255,.15);
+  border: none;
+  transition: 500ms;
+}
+.download:hover {
+  background-color: rgba(255,255,255,.3);
+  box-shadow: 0 0 15px rgb(119, 119, 119);
+}
+.download:focus {
+  background-color: transparent;
+}
+.cords {
+  /*display: none;*/
+}
+
+footer {
+  padding: 30px;
+  margin-top: 30px;
+  font-size: 15px;
+  padding-bottom: 50px;
+}
