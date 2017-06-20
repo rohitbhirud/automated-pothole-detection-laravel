@@ -18,13 +18,14 @@ Auth::routes();
 
 /*************************** admin routes ***************************/
 
+Route::get('/', 'HomeController@index')->middleware(['auth', 'redirectIfEngineer', 'role:admin']);
+
 Route::group(['middleware' => ['auth', 'role:admin']], function()
 {
 	/**
 	 * Basic home & reports routes
 	 */
 
-		Route::get('/', 'HomeController@index');
 		Route::get('/reports/{type}', 'HomeController@reports');
 
 	/**
@@ -64,7 +65,10 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 
 /*************************** engineers route ***************************/
 
-Route::group(['middleware' => ['auth', 'role:engineer']], function()
+Route::group(['prefix' => 'mod', 'middleware' => ['auth', 'role:engineer']], function()
 {
-	
+	Route::get('/', function()
+	{
+		return view('home');
+	});
 });
