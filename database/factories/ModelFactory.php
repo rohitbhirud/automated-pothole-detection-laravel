@@ -16,9 +16,27 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+    	'username' => $faker->unique()->userName,
+        'fullname' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'mobile' => $faker->unique()->randomNumber(8, true),
+        'adharno' => $faker->unique()->randomNumber(8),
+        'role' => 'engineer',
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
+});
+
+$factory->define(App\Complaint::class, function (Faker\Generator $faker) {
+	return [
+		'title' => $faker->sentence(3, true),
+		'type' => $faker->randomElement( $type = array( 'Pothole', 'Traffic', 'Accident' ) ),
+		'description' => $faker->sentence(8, true),
+		'latitude' => $faker->latitude(),
+		'longitude' => $faker->longitude(),
+		'imagename' => $faker->randomElement( Storage::files('public/uploads') ),
+		'user_id' => $faker->randomElement( App\User::pluck('id')->toArray() ),
+		'status' => $faker->randomElement( $status = array( 'open', 'working', 'closed' ) ),
+		'comment' => $faker->sentence(5, true),
+	];
 });

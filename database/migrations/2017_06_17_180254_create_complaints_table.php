@@ -17,13 +17,13 @@ class CreateComplaintsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('type');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->double('latitude');
             $table->double('longitude');
             $table->string('imagename')->nullable();
             $table->integer('user_id');
             $table->string('status')->nullable();
-            $table->string('comment')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

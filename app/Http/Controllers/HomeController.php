@@ -27,6 +27,7 @@ class HomeController extends Controller
         if ( Auth::user()->hasRole('engineer') ) {
             return redirect('mod/');
         }
+        
         return view('home');
     }
 }
