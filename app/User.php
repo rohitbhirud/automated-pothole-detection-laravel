@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return ( $this->role == $role ? true : false );
     }
+
+    public static function getAllEngineers()
+    {
+        return User::where('role', 'engineer')->get();
+    }
 }

@@ -36,7 +36,7 @@ class HomeController extends Controller
         $counter['accidents'] = Complaint::where('type', 'accident')->count();
         $counter['users'] = User::count();
 
-        $title = "Pothole Detection Homepage";
+        $title = "Pothole Detection Dashboard";
         
         return view('home', compact('title', 'counter'));
     }

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+
 class Complaint extends Model
 {
 	/**
@@ -24,5 +26,21 @@ class Complaint extends Model
     public function user()
     {
     	return $this->belongsTo('App\User');
+    }
+
+    public function engineer()
+    {
+    	if ( $this->isAssigned() )
+    		return User::find( $this->engineer_id );
+
+    	return false;
+    }
+
+    public function isAssigned()
+    {
+    	if ( $this->engineer_id != 0 ) 
+    		return true;
+
+    	return false;
     }
 }

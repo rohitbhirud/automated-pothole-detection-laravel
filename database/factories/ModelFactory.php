@@ -21,7 +21,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'mobile' => $faker->unique()->randomNumber(8, true),
         'adharno' => $faker->unique()->randomNumber(8),
-        'role' => 'engineer',
+        'role' => $faker->randomElement( array( 'engineer', 'citizen' ) ),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
@@ -36,6 +36,7 @@ $factory->define(App\Complaint::class, function (Faker\Generator $faker) {
 		'longitude' => $faker->longitude(),
 		'imagename' => $faker->randomElement( Storage::files('public/uploads') ),
 		'user_id' => $faker->randomElement( App\User::pluck('id')->toArray() ),
+		'engineer_id' => $faker->randomElement( array_collapse([ [0], App\User::where('role', 'engineer')->pluck('id')->toArray() ]) ),
 		'status' => $faker->randomElement( $status = array( 'open', 'working', 'closed' ) ),
 		'comment' => $faker->sentence(5, true),
 	];

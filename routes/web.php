@@ -77,3 +77,4 @@ Route::group(['prefix' => 'mod', 'middleware' => ['auth', 'role:engineer']], fun
 		return view('home');
 	});
 });
+

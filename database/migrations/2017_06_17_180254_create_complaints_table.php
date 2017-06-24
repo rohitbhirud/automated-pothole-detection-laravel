@@ -18,10 +18,11 @@ class CreateComplaintsTable extends Migration
             $table->string('title');
             $table->string('type');
             $table->text('description')->nullable();
-            $table->double('latitude');
-            $table->double('longitude');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('imagename')->nullable();
             $table->integer('user_id');
+            $table->integer('engineer_id')->default(0);
             $table->string('status')->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
