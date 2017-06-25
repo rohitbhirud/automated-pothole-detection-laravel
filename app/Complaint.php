@@ -31,7 +31,7 @@ class Complaint extends Model
     public function engineer()
     {
     	if ( $this->isAssigned() )
-    		return User::find( $this->engineer_id );
+    		return $this->belongsTo('App\User', 'engineer_id');
 
     	return false;
     }

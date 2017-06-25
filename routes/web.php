@@ -36,8 +36,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 	
 		Route::resource('engineer', 'EngineersController');
 
-		Route::get('engineer/details/{id}', 'EngineersController@show')
-			->name('engDetails');
+		// Route::get('engineer/details/{id}', 'EngineersController@show')
+		// 	->name('engDetails');
 		
 		Route::get('engineer/complaints', 'EngineersController@complaints')
 			->name('engComplaints');

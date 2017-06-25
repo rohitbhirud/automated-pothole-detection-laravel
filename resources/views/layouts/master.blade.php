@@ -5,20 +5,21 @@
 	@include('layouts.jumbotron')
 
 	<div class="row main-container">
-	<div class="col-md-2 sidebar">
+		<div class="col-md-2 sidebar">
+			@include('layouts.sidebar')
+		</div>
 
-	@include('layouts.sidebar')
-	
+		<div class="col-md-10 main">
+			<div class="main-header text-center">
+				<h3>{{ $title }}</h3>
+			</div>
+
+			<div class="content">
+				@yield('content')
+			</div>
+		</div>
+
 	</div>
-	<div class="col-md-10 main">
-	  <div class="main-header text-center">
-	    <h3>{{ $title }}</h3>
-	  </div>
+</div>
 
-	  <div class="content">
-		@yield('content')
-
-	   </div>
-  	</div>
-
-	@include('layouts.footer')
+@include('layouts.footer')

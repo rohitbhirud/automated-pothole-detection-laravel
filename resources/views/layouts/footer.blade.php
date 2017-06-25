@@ -1,4 +1,3 @@
-</div>
 <footer>
     <div class="copyright text-center">Designed By J.T.M. Engineers</div>
 </footer>
