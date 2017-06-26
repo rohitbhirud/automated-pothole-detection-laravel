@@ -69,12 +69,14 @@
 
       @else
 
-      <form action="" method="post">
+      <form action="{{ action('ComplaintsController@assign', ['complaint' => $complaint]) }}" method="post">
+
+      {{ csrf_field() }}
 
         <div name="eng_id" class="eng_list">
-          <select name="eng_id" class="form-control">
+          <select name="engineer_id" class="form-control" required>
 
-          <option value="0">Select Engineer</option>
+          <option value="">Select Engineer</option>
           
             @foreach ( $engineers as $engineer )
               <option value="{{ $engineer->id }}">

@@ -33,4 +33,13 @@ class ComplaintsController extends Controller
 
     	return view('complaints.details', compact('complaint', 'engineers', 'title'));
     }
+
+    public function assign(Complaint $complaint)
+    {
+    	$complaint->engineer_id = request()->engineer_id;
+
+    	$complaint->save();
+
+    	return back();
+    }
 }

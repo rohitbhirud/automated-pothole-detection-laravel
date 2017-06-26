@@ -35,9 +35,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 	 */
 	
 		Route::resource('engineer', 'EngineersController');
-
-		// Route::get('engineer/details/{id}', 'EngineersController@show')
-		// 	->name('engDetails');
 		
 		Route::get('engineer/complaints', 'EngineersController@complaints')
 			->name('engComplaints');
@@ -63,6 +60,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 			Route::get('/{complaint}/edit', 'ComplaintsController@edit')->name('compEdit');
 			Route::match(['put', 'patch'], '{complaint}', 'ComplaintsController@update');
 			Route::delete('{complaint}', 'ComplaintsController@destroy')->name('compDelete');
+
+			Route::post('/{complaint}/assign', 'ComplaintsController@assign');
 		});
 
 });
