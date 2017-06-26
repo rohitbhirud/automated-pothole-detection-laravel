@@ -43,4 +43,5 @@ class Complaint extends Model
 
     	return false;
     }
+
 }

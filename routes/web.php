@@ -36,8 +36,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 	
 		Route::resource('engineer', 'EngineersController');
 		
-		Route::get('engineer/complaints', 'EngineersController@complaints')
-			->name('engComplaints');
+		Route::get('engineer/{engineer}/complaints', 'EngineersController@complaints');
 
 	/**
 	 * User resource routes
@@ -46,7 +45,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 		Route::prefix('user')->group(function ()
 		{
 			Route::get('/', 'UsersController@index')->name('users');
-			Route::get('details/{user}', 'UsersController@show')->name('userDetails');
+			Route::get('complaints/{user}', 'UsersController@complaints')->name('userComplaints');
 			Route::delete('{user}', 'UsersController@destroy')->name('userDelete');
 		});
 

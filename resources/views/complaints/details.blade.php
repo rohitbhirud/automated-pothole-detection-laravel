@@ -7,7 +7,8 @@
   <div class="col-md-4 left-col">
      <div>Complainer Name : </div>
      <div>Complainer Mobile : </div>
-     <div>Complain Title : </div>
+     <div>Complaint Title : </div>
+     <div>Complaint Type : </div>
      <div>Longitude : </div>
      <div>Latitude : </div>
      <div>Image : </div>
@@ -29,6 +30,7 @@
     <div><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ $complaint->user->fullname }}</div>
     <div><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ $complaint->user->mobile }}</div>
     <div><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> {{ $complaint->title }}</div>
+    <div><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> {{ $complaint->type }}</div>
     <div><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <span id="longitude">{{ $complaint->longitude }}</span></div>
     <div><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <span id="latitude">{{ $complaint->latitude }}</span></div>
     <div>

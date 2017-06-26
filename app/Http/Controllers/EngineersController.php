@@ -107,4 +107,13 @@ class EngineersController extends Controller
 
         return back();
     }
+
+    public function complaints(User $engineer)
+    {
+        $complaints = $this->helper->getAssignedComplaints( $engineer->id );
+
+        $title = "Engineer " . $engineer->fullname . "'s Assigned Complaints";
+
+        return view('engineers.complaints', compact('complaints', 'title'));
+    }
 }

@@ -23,4 +23,9 @@ class Helper
 	{
 		return Complaint::where('engineer_id', $engineer_id)->get();
 	}
+
+	public function getAssignedComplaintsCount($engineer_id)
+	{
+		return Complaint::where('engineer_id', $engineer_id)->count();
+	}
 }	
