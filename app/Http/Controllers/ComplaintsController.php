@@ -42,4 +42,11 @@ class ComplaintsController extends Controller
 
     	return back();
     }
+
+    public function destroy(Complaint $complaint)
+    {
+        $complaint->delete();
+
+        return back();
+    }
 }

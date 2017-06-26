@@ -30,7 +30,7 @@ class UsersController extends Controller
     {
     	$user->complaints()->delete();
 
-    	User::destroy($user->id);
+    	$user->delete();
 
     	return back();
     }

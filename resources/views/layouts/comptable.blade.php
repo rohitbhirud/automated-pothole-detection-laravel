@@ -16,6 +16,8 @@
 
 			<th class="text-center">Create Date</th>
 
+			<th class="text-center">Delete Complaint</th>
+
 			<th class="text-center">Detail</th>
 	    </tr>
 	</thead>
@@ -42,7 +44,17 @@
 			<td>{{ $complaint->created_at }}</td>
 
 			<td>
-				<a href="{{ route('compDetails', ['complaint' => $complaint]) }}">Detail</a>
+				<form action="{{ route('compDelete', $complaint) }}" method="POST">
+				    {{ method_field('DELETE') }}
+				    {{ csrf_field() }}
+				    <button class="btn btn-sm btn-danger">Delete Complaint</button>
+				</form>
+			</td>
+
+			<td>
+				<a href="{{ route('compDetails', ['complaint' => $complaint]) }}" class="btn btn-sm btn-info">
+					Detail
+				</a>
 			</td>
 
 	    </tr>
