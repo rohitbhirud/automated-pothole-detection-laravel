@@ -22,8 +22,9 @@
 
 	<tbody>
 
+
 	@foreach ( $complaints as $complaint )
-	
+
 	    <tr class="text-center">
 
 			<td>{{ $complaint->title }}</td>

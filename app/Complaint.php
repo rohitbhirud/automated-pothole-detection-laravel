@@ -18,22 +18,22 @@ class Complaint extends Model
 		'imagename', 'user_id', 'status', 'comment'
 	];
 
-	/**
-	 * Get a user for current complaint
-	 * 
-	 * @return A User
-	 */
-    public function user()
-    {
-    	return $this->belongsTo('App\User');
-    }
-
     public function engineer()
     {
     	if ( $this->isAssigned() )
     		return $this->belongsTo('App\User', 'engineer_id');
 
     	return false;
+    }
+
+    /**
+     * Get a user for current complaint
+     * 
+     * @return A User
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
     public function isAssigned()

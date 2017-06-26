@@ -93,10 +93,17 @@ class EngineersController extends Controller
      */
     public function destroy($id)
     {
+        // Delete Current Engineer
         User::destroy($id);
 
+        // Unassign deleted engineer from complaints assigned
         Complaint::where('engineer_id', $id)
             ->update(['engineer_id' => 0]);
+
+        // Delete complaints if reported by engineer
+        // this is temporary as engineer cant report
+        Complaint::where('user_id', $id)
+            ->delete();
 
         return back();
     }

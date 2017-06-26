@@ -48,7 +48,7 @@
       @if ( ! $complaint->isAssigned() )
           Complain Not Assigned
       @else
-          {{ $complaint->engineer()->fullname }}
+          {{ $complaint->engineer->fullname }}
       @endif
     </div>
 
