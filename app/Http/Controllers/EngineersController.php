@@ -37,7 +37,9 @@ class EngineersController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Add new engineer";
+
+        return view('engineers.create', compact('title'));
     }
 
     /**
@@ -48,7 +50,17 @@ class EngineersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+
+        $user->username = $request->username;
+        $user->fullname = $request->fullname;
+        $user->email = $request->email;
+        $user->mobile = $request->mobile;
+        $user->password = $request->password;
+        $user->role = "engineer";
+        $user->save();
+
+        return redirect()->route('engineer.index');
     }
 
     /**

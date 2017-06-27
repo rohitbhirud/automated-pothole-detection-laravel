@@ -2,6 +2,7 @@
 
 @section('content')
 
+	<a class="add_eng btn btn-primary" href="{{ route('engineer.create') }}">Add Engineer</a>
 
 	<table class="table table-bordered">
 
