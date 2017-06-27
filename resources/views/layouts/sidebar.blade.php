@@ -65,10 +65,14 @@
     </a>
   @endif
 
-    <a href="{{ url('/logout') }}">
-      <li class="list-group-item">
-        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-        Logout
-      </li>
-    </a>
+  <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+      Logout
+    </li>
+
+  </a>
+
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 </ul>
