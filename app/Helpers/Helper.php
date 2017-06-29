@@ -24,6 +24,11 @@ class Helper
 		return Complaint::where('engineer_id', $engineer_id)->get();
 	}
 
+	public function getClosedComplaints($engineer_id)
+	{
+		return Complaint::where('engineer_id', $engineer_id)->where('status', 'closed')->get();
+	}
+
 	public function getAssignedComplaintsCount($engineer_id)
 	{
 		return Complaint::where('engineer_id', $engineer_id)->count();

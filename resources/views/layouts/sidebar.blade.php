@@ -11,14 +11,14 @@
   
   @if ( Auth::user()->hasRole('engineer') )
 
-    <a href="{{ route('home') }}">
+    <a href="{{ action('ModsController@complaints') }}">
       <li class="list-group-item">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         View Assign Complains
       </li>
     </a>
     
-    <a href="{{ route('home') }}">
+    <a href="{{ action('ModsController@closed') }}">
       <li class="list-group-item">
         <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
         Close Complain

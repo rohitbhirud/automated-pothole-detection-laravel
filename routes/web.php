@@ -56,8 +56,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 		{
 			Route::get('/{type}', 'ComplaintsController@index')->name('complaints');
 			Route::get('/details/{complaint}', 'ComplaintsController@show')->name('compDetails');
-			Route::get('/{complaint}/edit', 'ComplaintsController@edit')->name('compEdit');
-			Route::match(['put', 'patch'], '{complaint}', 'ComplaintsController@update');
 			Route::delete('{complaint}', 'ComplaintsController@destroy')->name('compDelete');
 
 			Route::post('/{complaint}/assign', 'ComplaintsController@assign');
@@ -70,9 +68,15 @@ Route::group(['middleware' => ['auth', 'role:admin']], function()
 
 Route::group(['prefix' => 'mod', 'middleware' => ['auth', 'role:engineer']], function()
 {
-	Route::get('/', function()
-	{
-		return view('home');
-	});
+
+	Route::get('/', 'ModsController@index');
+
+	Route::get('/complaints', 'ModsController@complaints');
+
+	Route::get('/details/{complaint}', 'ModsController@details');
+
+	Route::post('{id}', 'ModsController@update');
+
+	Route::get('/complaints/closed', 'ModsController@closed');
 });
 
