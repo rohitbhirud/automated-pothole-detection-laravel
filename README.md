@@ -14,7 +14,7 @@ Technology Used :  Android Platform &amp; PHP / MySQL
 
 Android source code is <a href="https://github.com/rohitbhirud/pothole-detection-android">here</a>
 
-Live demo is still using Core PHP.
+Live demo is still using Core PHP & will be available in <strong>Laravel</strong>
 
 Live Demo is hosted on : <a href="http://hubject.in" target="_blank">http://hubject.in</a>
 Admin Login Info :<br>
