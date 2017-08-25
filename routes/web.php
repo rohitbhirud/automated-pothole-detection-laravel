@@ -80,3 +80,12 @@ Route::group(['prefix' => 'mod', 'middleware' => ['auth', 'role:engineer']], fun
 	Route::get('/complaints/closed', 'ModsController@closed');
 });
 
+Route::group(['prefix' => 'api'], function ()
+{
+	Route::post('/getComplaints', 'ApiController@getComplaints');
+	Route::post('/jurkCreate', 'ApiController@jurkCreate');
+	Route::post('/login', 'ApiController@login');
+	Route::post('/register', 'ApiController@register');
+	Route::post('/makeComplain', 'ApiController@makeComplain');
+	Route::post('/makeVoiceComplain', 'ApiController@makeVoiceComplain');
+});
