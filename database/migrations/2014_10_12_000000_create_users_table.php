@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile', 10)->unique()->nullable();
             $table->string('adharno', 12)->unique()->nullable();
             $table->string('password');
-            $table->string('role');
+            $table->string('role')->default('citizen');
             $table->rememberToken();
             $table->timestamps();
             $table->SoftDeletes();
