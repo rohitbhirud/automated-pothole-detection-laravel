@@ -56,7 +56,7 @@ class EngineersController extends Controller
         $user->fullname = $request->fullname;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
-        $user->password = Hash::make( $request->password );
+        $user->password = \Hash::make( $request->password );
         $user->role = "engineer";
         $user->save();
 

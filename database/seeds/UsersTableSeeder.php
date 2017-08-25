@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $user = new App\User;
         $user->username = "rohitbhirud";
         $user->fullname = "Rohit Bhirud";
-        $user->email = "rbhirud7@gmail.com";
+        $user->email = "admin@hubject.in";
         $user->mobile = 8600033008;
         $user->adharno = 499588337722;
         $user->password = Hash::make("512420");
