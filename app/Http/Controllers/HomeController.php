@@ -35,10 +35,11 @@ class HomeController extends Controller
         $counter['traffic'] = Complaint::where('type', 'traffic')->count();
         $counter['accidents'] = Complaint::where('type', 'accident')->count();
         $counter['users'] = User::count();
+        $cords = json_encode( Complaint::with('user')->latest()->limit(10)->get() );
 
         $title = "Pothole Detection Dashboard";
         
-        return view('home', compact('title', 'counter'));
+        return view('home', compact('title', 'counter', 'cords'));
     }
 
     public function reports($type = "")

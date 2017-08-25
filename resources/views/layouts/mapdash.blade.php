@@ -1,13 +1,8 @@
 <script type="text/javascript">
+		
+		var cords = {!! $cords !!};
 
-
-		<?php 
-
-				$js_array = json_encode($cords);
-				
-				echo "var cords = ". $js_array . ";\n";
-
-			?>
+		console.log(cords);
 
 		function initMap() {
 		    var map;
@@ -40,11 +35,11 @@
 		        });
 
 		        infoBar[i] = '<div class="info_content">' +
-		        '<h3>' + cords[i].comp_title.toUpperCase() + '</h3>' +
-		        'Compaint Type : ' + cords[i].comp_type + '<br>' +
-		        'Reported By : ' + cords[i].cust_name + '</br>' +
-		        'Report Date : ' + cords[i].create_date + '</br>' +
-		        '<a href="view.php?mod=admin&view=viewByCompID&compId=' + cords[i].cid + '">View Compaint</a></div>';
+		        '<h3>' + cords[i].title.toUpperCase() + '</h3>' +
+		        'Compaint Type : ' + cords[i].type + '<br>' +
+		        'Reported By : ' + cords[i].user.fullname + '</br>' +
+		        'Report Date : ' + cords[i].created_at + '</br>' +
+		        '<a href="/complaint/details/' + cords[i].id + '">View Compaint</a></div>';
 
 		        // Allow each marker to have an info window    
 		        google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -57,8 +52,6 @@
 		        // Automatically center the map fitting all markers on the screen
 		        map.fitBounds(bounds);
 		    }
-
-		    console.log(infoBar);
 
 		    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
 		    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
