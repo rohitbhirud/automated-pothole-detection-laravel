@@ -75,9 +75,9 @@ class ApiController extends Controller
 
     	if ( $request->file('image')->isValid() ) {
 
-    		$newname = str_random(40) . $request->image->extension();
-
-    		$path = $request->image->storeAs('uploads', $newname);
+    		$path = $request->image->store('uploads');
+    		
+    		$complain->imagepath = $path;
 
 	    	$complain->save();
 

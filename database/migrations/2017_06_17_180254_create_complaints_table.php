@@ -20,7 +20,7 @@ class CreateComplaintsTable extends Migration
             $table->text('description')->nullable();
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('imagename')->nullable();
+            $table->text('imagepath')->nullable();
             $table->integer('user_id');
             $table->integer('engineer_id')->default(0);
             $table->string('status')->nullable();

@@ -108,7 +108,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <img class="center-block" width="100%" src="{{ Storage::url( $complaint->imagename ) }}" />
+          <img class="center-block" width="100%" src="{{ Storage::url( $complaint->imagepath ) }}" />
         </div>
       </div>
     </div>
