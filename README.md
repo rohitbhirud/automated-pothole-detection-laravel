@@ -4,9 +4,7 @@
 </div>
 <br>
 
-<strong>Work In Progress...</strong>
-
-This was my project for final year of Computer Engineering.
+This was a project for final year of Computer Engineering.
 
 Originaly developed in Core PHP n then ported to Laravel Framework.
 
@@ -16,7 +14,7 @@ Android source code is <a href="https://github.com/rohitbhirud/pothole-detection
 
 Live demo is still using Core PHP & will be available in <strong>Laravel</strong>
 
-Live Demo is hosted on : <a href="http://hubject.in" target="_blank">http://pothole.hubject.in</a>
+Live Demo is hosted on : <a href="http://pothole.hubject.in" target="_blank">http://pothole.hubject.in</a>
 Admin Login Info :<br>
 Email : admin@hubject.in<br>
 Password : admin
@@ -31,3 +29,4 @@ There are 3 types of complaint you can report :
 	  <li>Voice Complaint</li>
 	  <li>Using Accelerometer Sensor</li>
 	</ol>
+Note : unfortunately! No tests are defined.
